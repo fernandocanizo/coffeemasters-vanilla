@@ -1,5 +1,6 @@
 import { Store } from "./service/store"
 import { api } from "./service/api"
+import { loadMenu } from "./service/menu"
 
 const qs = args => document.querySelector(args)
 const qsa = args => document.querySelectorAll(args)
@@ -21,7 +22,9 @@ HTMLElement.prototype.qsa = function (args) {
    return this.querySelectorAll(args)
 }
 
-window.addEventListener("DOMContentLoaded", () => console.log("DOM ready"))
+window.addEventListener("DOMContentLoaded", () => {
+   loadMenu()
+})
 
 window.app = {}
 app.store = store
