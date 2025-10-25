@@ -1,19 +1,21 @@
-const $ = args => document.querySelector(args)
-const $$ = args => document.querySelectorAll(args)
+const qs = args => document.querySelector(args)
+const qsa = args => document.querySelectorAll(args)
 
-HTMLElement.prototype.on = function (a, b, c) {
-   return this.addEventListener(a, b, c)
+HTMLElement.prototype.on = function (type, listener, optionsOrUseCapture) {
+   return this.addEventListener(type, listener, optionsOrUseCapture)
 }
 
 
-HTMLElement.prototype.off = function (a, b) {
-   return this.removeEvenListener(a, b)
+HTMLElement.prototype.off = function (type, listener) {
+   return this.removeEvenListener(type, listener)
 }
 
-HTMLElement.prototype.$ = function (args) {
+HTMLElement.prototype.qs = function (args) {
    return this.querySelector(args)
 }
 
-HTMLElement.prototype.$$ = function (args) {
+HTMLElement.prototype.qsa = function (args) {
    return this.querySelectorAll(args)
 }
+
+window.addEventListener("DOMContentLoaded", () => console.log("DOM ready"))
